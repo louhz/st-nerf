@@ -103,7 +103,7 @@ class Random_Transforms(object):
         #translation = (width /2-K[0,2],height/2-K[1,2])
 
         
-        img = T.functional.rotate(img, angle = np.rad2deg(rotation), resample = Image.BICUBIC, center =(K[0,2],K[1,2]))
+        img = T.functional.rotate(img, angle = np.rad2deg(rotation), interpolation = Image.BICUBIC, center =(K[0,2],K[1,2]))
         img = T.functional.affine(img, angle = 0, translate = translation, scale= 1,shear=0)
         img = T.functional.crop(img, 0, 0,  int(height/ration),int(height*self.size[1]/ration/self.size[0]) )
         img = T.functional.resize(img, self.size, self.interpolation)
@@ -113,7 +113,7 @@ class Random_Transforms(object):
         ROI = np.ones_like(img_np)*255.0
 
         ROI = Image.fromarray(np.uint8(ROI))
-        ROI = T.functional.rotate(ROI, angle = np.rad2deg(rotation), resample = Image.BICUBIC, center =(K[0,2],K[1,2]))
+        ROI = T.functional.rotate(ROI, angle = np.rad2deg(rotation), interpolation = Image.BICUBIC, center =(K[0,2],K[1,2]))
         ROI = T.functional.affine(ROI, angle = 0, translate = translation, scale= 1,shear=0)
         ROI = T.functional.crop(ROI, 0,0, int(height/ration),int(height*self.size[1]/ration/self.size[0]) )
         ROI = T.functional.resize(ROI, self.size, self.interpolation)
@@ -123,7 +123,7 @@ class Random_Transforms(object):
         
         
         if mask is not None:
-            mask = T.functional.rotate(mask, angle = np.rad2deg(rotation), resample = Image.BICUBIC, center =(K[0,2],K[1,2]))
+            mask = T.functional.rotate(mask, angle = np.rad2deg(rotation), interpolation = Image.BICUBIC, center =(K[0,2],K[1,2]))
             mask = T.functional.affine(mask, angle = 0, translate = translation, scale= 1,shear=0)
             mask = T.functional.crop(mask, 0, 0,  int(height/ration),int(height*self.size[1]/ration/self.size[0]) )
             mask = T.functional.resize(mask, self.size, self.interpolation)
@@ -132,7 +132,7 @@ class Random_Transforms(object):
 
         if label is not None:
             label = Image.fromarray(np.uint8(label))
-            label = T.functional.rotate(label, angle = np.rad2deg(rotation), resample = Image.BICUBIC, center =(K[0,2],K[1,2]))
+            label = T.functional.rotate(label, angle = np.rad2deg(rotation), interpolation = Image.BICUBIC, center =(K[0,2],K[1,2]))
             label = T.functional.affine(label, angle = 0, translate = translation, scale= 1,shear=0)
             label = T.functional.crop(label, 0,0, int(height/ration),int(height*self.size[1]/ration/self.size[0]) )
             label = T.functional.resize(label, self.size, self.interpolation)
