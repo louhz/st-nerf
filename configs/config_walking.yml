@@ -21,7 +21,7 @@ INPUT:
   SIZE_TEST: [1920,1080]
 
 DATASETS:
-  TRAIN: /DATA_EDS/louhz/stnerfdataset
+  TRAIN: /DATA_EDS/louhz/stnerfdataset/walking
   TMP_RAYS: "rays_tmp_1920_BBOX"
   NUM_FRAME: 1
   SHIFT: 0.0
