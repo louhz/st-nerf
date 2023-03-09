@@ -24,7 +24,7 @@ INPUT:
   SIZE_TEST: [1920,1080]
 
 DATASETS:
-  TRAIN: <LOCATION OF DATASET> 
+  TRAIN: /DATA_EDS/louhz/stnerfdataset
   TMP_RAYS: "rays_tmp_1920"
   NUM_FRAME: 1
   SHIFT: 0.0
